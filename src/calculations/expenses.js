@@ -3,7 +3,7 @@ export function calculateExpenses({
   headcount,
   costPerEmployee,
   operatingCosts,
-  capitalExpenditure,
+//   capitalExpenditure,
   previousDepreciation,
   previousCapitalExpenditure,
   openingFixedAssets,
