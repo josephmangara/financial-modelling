@@ -7,11 +7,11 @@ import { calculateProfit } from "./profit.js";
 export function calculateFinancialModel(model) {
   const { assumptions: a, opening: o } = model;
 
-  if (months.some((_, i) =>
-    Object.values(a).some(values =>
-      !Array.isArray(values) || values.length !== 12
+  if (
+    Object.values(a).some(
+      (values) => !Array.isArray(values) || values.length !== 12
     )
-  )) {
+  ) {
     throw new Error("Each monthly assumption must contain 12 values.");
   }
 

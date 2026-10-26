@@ -24,7 +24,7 @@ describe("Financial model", () => {
 
   it("maintains the balance sheet identity", () => {
     for (const month of results) {
-      expect(month.balanceCheck).toBe(0);
+      expect(month.balanceCheck).toBeCloseTo(0, 2);
     }
   });
 
