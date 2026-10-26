@@ -5,6 +5,7 @@ import { calculateFinancialModel } from "./calculations/financialModel.js";
 import FinancialKPIs from "./components/FinancialKPIs.jsx";
 import FinancialCharts from "./components/FinancialCharts.jsx";
 import AssumptionsPanel from "./components/AssumptionsPanel.jsx";
+import ScenarioComparison from "./components/ScenarioComparison.jsx";
 
 function cloneModel(model) {
   return {
@@ -78,6 +79,8 @@ export default function App() {
           onChange={updateAssumption}
           onReset={resetAssumptions}
         />
+
+          <ScenarioComparison model={model} />
       </div>
     </main>
   );
