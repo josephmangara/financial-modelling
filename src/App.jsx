@@ -3,6 +3,7 @@ import { useMemo } from "react";
 import { defaultModel } from "./data/defaultModel.js";
 import { calculateFinancialModel } from "./calculations/financialModel.js";
 import FinancialKPIs from "./components/FinancialKPIs.jsx";
+import FinancialCharts from "./components/FinancialCharts.jsx";
 
 export default function App() {
   const results = useMemo(
@@ -35,12 +36,7 @@ export default function App() {
 
         <FinancialKPIs results={results} />
 
-        <section className="rounded-xl border border-(--border) bg-(--surface) p-6">
-          <h2 className="text-lg font-medium">Financial dashboard</h2>
-          <p className="mt-2 text-sm text-(--muted)">
-            Monthly charts and interactive assumptions will go here.
-          </p>
-        </section>
+        <FinancialCharts results={results} />
       </div>
     </main>
   );
