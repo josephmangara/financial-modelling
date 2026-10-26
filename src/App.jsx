@@ -1,15 +1,48 @@
 
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import { defaultModel } from "./data/defaultModel.js";
 import { calculateFinancialModel } from "./calculations/financialModel.js";
 import FinancialKPIs from "./components/FinancialKPIs.jsx";
 import FinancialCharts from "./components/FinancialCharts.jsx";
+import AssumptionsPanel from "./components/AssumptionsPanel.jsx";
+
+function cloneModel(model) {
+  return {
+    assumptions: Object.fromEntries(
+      Object.entries(model.assumptions).map(([key, values]) => [
+        key,
+        [...values],
+      ])
+    ),
+    opening: { ...model.opening },
+  };
+}
 
 export default function App() {
+  const [model, setModel] = useState(() => cloneModel(defaultModel));
+  const [selectedMonth, setSelectedMonth] = useState(0);
+
   const results = useMemo(
-    () => calculateFinancialModel(defaultModel),
-    []
+    () => calculateFinancialModel(model),
+    [model]
   );
+
+  function updateAssumption(key, monthIndex, value) {
+    setModel((current) => ({
+      ...current,
+      assumptions: {
+        ...current.assumptions,
+        [key]: current.assumptions[key].map((item, index) =>
+          index === monthIndex ? value : item
+        ),
+      },
+    }));
+  }
+
+  function resetAssumptions() {
+    setModel(cloneModel(defaultModel));
+    setSelectedMonth(0);
+  }
 
   return (
     <main className="min-h-screen bg-(--bg) p-5 text-(--text) sm:p-8">
@@ -37,6 +70,14 @@ export default function App() {
         <FinancialKPIs results={results} />
 
         <FinancialCharts results={results} />
+
+        <AssumptionsPanel
+          model={model}
+          selectedMonth={selectedMonth}
+          onMonthChange={setSelectedMonth}
+          onChange={updateAssumption}
+          onReset={resetAssumptions}
+        />
       </div>
     </main>
   );
