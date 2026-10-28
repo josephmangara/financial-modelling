@@ -1,3 +1,4 @@
+import { Analytics } from "@vercel/analytics/next";
 
 import { useMemo, useState } from "react";
 import { defaultModel } from "./data/defaultModel.js";
@@ -46,42 +47,45 @@ export default function App() {
   }
 
   return (
-    <main className="min-h-screen bg-(--bg) p-5 text-(--text) sm:p-8">
-      <div className="mx-auto max-w-7xl space-y-8">
-        <header className="flex flex-wrap items-start justify-between gap-4">
-          <div>
-            <p className="text-sm text-(--accent)">
-              FINANCIAL PLANNING
-            </p>
+    <>
+      <main className="min-h-screen bg-(--bg) p-5 text-(--text) sm:p-8">
+        <div className="mx-auto max-w-7xl space-y-8">
+          <header className="flex flex-wrap items-start justify-between gap-4">
+            <div>
+              <p className="text-sm text-(--accent)">
+                FINANCIAL PLANNING
+              </p>
 
-            <h1 className="mt-2 text-3xl font-semibold tracking-tight">
-              Financial overview
-            </h1>
+              <h1 className="mt-2 text-3xl font-semibold tracking-tight">
+                Financial overview
+              </h1>
 
-            <p className="mt-2 text-sm text-(--muted)">
-              Startup financial projections · 12 months
-            </p>
-          </div>
+              <p className="mt-2 text-sm text-(--muted)">
+                Startup financial projections · 12 months
+              </p>
+            </div>
 
-          <span className="rounded-full border border-(--border) px-3 py-1.5 text-sm">
-            Base scenario
-          </span>
-        </header>
+            <span className="rounded-full border border-(--border) px-3 py-1.5 text-sm">
+              Base scenario
+            </span>
+          </header>
 
-        <FinancialKPIs results={results} />
+          <FinancialKPIs results={results} />
 
-        <FinancialCharts results={results} />
+          <FinancialCharts results={results} />
 
-        <AssumptionsPanel
-          model={model}
-          selectedMonth={selectedMonth}
-          onMonthChange={setSelectedMonth}
-          onChange={updateAssumption}
-          onReset={resetAssumptions}
-        />
+          <AssumptionsPanel
+            model={model}
+            selectedMonth={selectedMonth}
+            onMonthChange={setSelectedMonth}
+            onChange={updateAssumption}
+            onReset={resetAssumptions}
+          />
 
-          <ScenarioComparison model={model} />
-      </div>
-    </main>
+            <ScenarioComparison model={model} />
+        </div>
+      </main>
+      <Analytics />
+    </>
   );
 }
