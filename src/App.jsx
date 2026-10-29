@@ -7,6 +7,9 @@ import FinancialKPIs from "./components/FinancialKPIs.jsx";
 import FinancialCharts from "./components/FinancialCharts.jsx";
 import AssumptionsPanel from "./components/AssumptionsPanel.jsx";
 import ScenarioComparison from "./components/ScenarioComparison.jsx";
+import Header from "./layout/Header.jsx";
+import Footer from "./layout/Footer.jsx";
+
 
 function cloneModel(model) {
   return {
@@ -48,6 +51,7 @@ export default function App() {
 
   return (
     <>
+      <Header />
       <main className="min-h-screen bg-(--bg) p-5 text-(--text) sm:p-8">
         <div className="mx-auto max-w-7xl space-y-8">
           <header className="flex flex-wrap items-start justify-between gap-4">
@@ -85,6 +89,7 @@ export default function App() {
             <ScenarioComparison model={model} />
         </div>
       </main>
+      <Footer />
       <Analytics />
     </>
   );
