@@ -19,6 +19,9 @@ A client-side financial modelling application that translates Excel-based financ
 - Tailwind CSS
 - Recharts
 - Vitest
+- xlsx
+- html-to-image
+- jspdf
 
 ## Getting Started
 
@@ -53,11 +56,12 @@ npm -v
    npm install
    ```
 
-4. If the dependencies have not already been installed, install Recharts and Vitest:
+4. If the dependencies have not already been installed, install Recharts and Vitest and the following xlsx and export libraries:
 
    ```
    npm install recharts
    npm install -D vitest
+   npm install xlsx html-to-image jspdf jspdf-autotable
    ```
 
 ### Running the Development Server
