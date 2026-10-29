@@ -9,7 +9,9 @@ import AssumptionsPanel from "./components/AssumptionsPanel.jsx";
 import ScenarioComparison from "./components/ScenarioComparison.jsx";
 import Header from "./layout/Header.jsx";
 import Footer from "./layout/Footer.jsx";
+
 import ImportFinancialModel from "./components/ImportFinancialModel";
+import { exportFinancialModel } from "./utils/exportFinancialModel";
 
 
 
@@ -80,6 +82,14 @@ export default function App() {
             model={model}
             onImport={setModel}
           />
+          
+          <button
+  type="button"
+  onClick={() => exportFinancialModel(model, results)}
+  className="rounded-md border border-(--border) px-4 py-2 text-sm font-medium transition-opacity hover:opacity-70"
+>
+  Export Excel
+</button>
 
           <FinancialKPIs results={results} />
 
