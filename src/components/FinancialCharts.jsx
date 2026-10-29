@@ -16,7 +16,7 @@ const formatTooltipCurrency = (value) =>
 
 export default function FinancialCharts({ results }) {
   return (
-    <section className="rounded-xl border border-(--border) bg-(--surface) p-5 sm:p-6">
+    <section className="rounded-xl border border-(--border) bg-(--surface) p-2 sm:p-6">
       <div className="mb-6">
         <h2 className="text-lg font-semibold">
           Financial performance

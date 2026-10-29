@@ -54,7 +54,7 @@ export default function FinancialKPIs({ results }) {
       {metrics.map(({ label, key, percentage }) => (
         <article
           key={key}
-          className="rounded-xl border border-(--border) bg-(--surface) p-5"
+          className="rounded-xl border border-(--border) bg-(--surface) p-2"
         >
           <p className="text-sm text-(--muted)">{label}</p>
 

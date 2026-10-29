@@ -70,7 +70,7 @@ export default function AssumptionsPanel({
   const assumptions = model.assumptions;
 
   return (
-    <section className="rounded-xl border border-(--border) bg-(--surface) p-5 sm:p-6">
+    <section className="rounded-xl border border-(--border) bg-(--surface) p-2 sm:p-6">
       <div className="flex flex-wrap items-start justify-between gap-4">
         <div>
           <h2 className="text-lg font-semibold">

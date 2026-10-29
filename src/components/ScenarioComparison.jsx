@@ -104,7 +104,7 @@ export default function ScenarioComparison({ model }) {
   }
 
   return (
-    <section className="rounded-xl border border-(--border) bg-(--surface) p-5 sm:p-6">
+    <section className="rounded-xl border border-(--border) bg-(--surface) p-2 sm:p-6">
       <div>
         <h2 className="text-lg font-semibold">
           Scenario comparison

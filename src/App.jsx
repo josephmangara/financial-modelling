@@ -52,7 +52,7 @@ export default function App() {
   return (
     <>
       <Header />
-      <main className="min-h-screen bg-(--bg) p-5 text-(--text) sm:p-8">
+      <main className="min-h-screen bg-(--bg) p-2 text-(--text) sm:p-8">
         <div className="mx-auto max-w-7xl space-y-8">
           <header className="flex flex-wrap items-start justify-between gap-4">
             <div>
