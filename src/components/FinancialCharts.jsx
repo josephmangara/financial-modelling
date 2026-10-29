@@ -26,7 +26,7 @@ export default function FinancialCharts({ results }) {
         </p>
       </div>
 
-      <div className="h-80 w-full">
+      <div className="h-80 w-full" data-export-chart="Revenue and Profit">
         <ResponsiveContainer width="100%" height="100%">
           <ComposedChart
             data={results}

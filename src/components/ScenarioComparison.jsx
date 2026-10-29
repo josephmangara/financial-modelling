@@ -114,7 +114,7 @@ export default function ScenarioComparison({ model }) {
         </p>
       </div>
 
-      <div className="mt-5 flex flex-wrap gap-2">
+      <div className="mt-5 flex flex-wrap gap-2" data-export-chart="Revenue and Profit">
         {Object.keys(scenarios).map((name) => (
           <button
             key={name}

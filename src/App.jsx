@@ -12,6 +12,7 @@ import Footer from "./layout/Footer.jsx";
 
 import ImportFinancialModel from "./components/ImportFinancialModel";
 import { exportFinancialModel } from "./utils/exportFinancialModel";
+import { exportDashboardCharts, exportFinancialReportPdf } from "./utils/exportDashboard.js";
 
 
 
@@ -53,6 +54,24 @@ export default function App() {
     setSelectedMonth(0);
   }
 
+  const handleExportCharts = async () => {
+    try {
+      await exportDashboardCharts();
+    } catch (error) {
+      console.error("Chart export failed:", error);
+      window.alert(error.message || "Failed to export charts.");
+    }
+  };
+
+  const handleExportPdf = async () => {
+    try {
+      await exportFinancialReportPdf(results);
+    } catch (error) {
+      console.error("PDF export failed:", error);
+      window.alert(error.message || "Failed to export PDF report.");
+    }
+  };
+
   return (
     <>
       <Header />
@@ -83,13 +102,31 @@ export default function App() {
             onImport={setModel}
           />
           
-          <button
-  type="button"
-  onClick={() => exportFinancialModel(model, results)}
-  className="rounded-md border border-(--border) px-4 py-2 text-sm font-medium transition-opacity hover:opacity-70"
->
-  Export Excel
-</button>
+          <div className="flex flex-wrap gap-8">
+            <button
+              type="button"
+              onClick={() => exportFinancialModel(model, results)}
+              className="rounded-md border border-(--border) px-4 py-2 text-sm font-medium transition-opacity hover:opacity-70"
+            >
+              Export assumptions Excel file
+            </button>
+
+            <button
+              type="button"
+              onClick={handleExportCharts}
+              className="rounded-md border border-(--border) px-4 py-2 text-sm font-medium transition-opacity hover:opacity-70"
+            >
+              Export Charts PNG
+            </button>
+
+            <button
+              type="button"
+              onClick={handleExportPdf}
+              className="rounded-md border border-(--border) px-4 py-2 text-sm font-medium transition-opacity hover:opacity-70"
+            >
+              Export PDF Report
+            </button>
+          </div>
 
           <FinancialKPIs results={results} />
 
