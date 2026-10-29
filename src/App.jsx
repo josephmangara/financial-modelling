@@ -9,6 +9,8 @@ import AssumptionsPanel from "./components/AssumptionsPanel.jsx";
 import ScenarioComparison from "./components/ScenarioComparison.jsx";
 import Header from "./layout/Header.jsx";
 import Footer from "./layout/Footer.jsx";
+import ImportFinancialModel from "./components/ImportFinancialModel";
+
 
 
 function cloneModel(model) {
@@ -61,7 +63,7 @@ export default function App() {
               </p>
 
               <h1 className="mt-2 text-3xl font-semibold tracking-tight">
-                Financial overview
+                Overview
               </h1>
 
               <p className="mt-2 text-sm text-(--muted)">
@@ -73,6 +75,11 @@ export default function App() {
               Base scenario
             </span>
           </header>
+
+          <ImportFinancialModel
+            model={model}
+            onImport={setModel}
+          />
 
           <FinancialKPIs results={results} />
 
